@@ -1,0 +1,17 @@
+---
+export interface Props {
+  name: string;
+  link: string;
+  mail?: boolean;
+}
+
+const { name, link, mail = false } = Astro.props;
+---
+
+<p>
+  - <span class="font-bold">[{name}]</span><a
+    class="hover:underline"
+    href={mail ? `mailto:${link}` : link}
+    target="_blank">({link})</a
+  >
+</p>
