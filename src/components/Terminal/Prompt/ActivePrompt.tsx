@@ -24,16 +24,20 @@ const ActivePrompt = ({ dirPath = "~", initialState }: ActivePromptProps) => {
 
   const handleKeydownEvent = (event: KeyboardEvent) => {
     if (event.code === "Enter") {
-      const [first, ...args] = prompt.trim().split(" ");
+      const [command, ...args] = prompt.trim().split(" ");
       const filteredArgs = args.filter((a) => a);
 
-      setCommands([
-        ...commands,
-        {
-          command: first,
-          args: filteredArgs,
-        },
-      ]);
+      if (command !== "clear") {
+        setCommands([
+          ...commands,
+          {
+            command,
+            args: filteredArgs,
+          },
+        ]);
+      } else {
+        setCommands([initialState]);
+      }
 
       setPrompt("");
     }

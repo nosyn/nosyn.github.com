@@ -1,4 +1,5 @@
 import Link, { LinkProps } from "../Link";
+import NotFound from "./NotFound";
 
 const contacts: LinkProps[] = [
   {
@@ -15,7 +16,7 @@ const contacts: LinkProps[] = [
   },
   {
     name: "Email",
-    link: "nyenson@plusonerobotics.com",
+    link: "nyenson1997@gmail.com",
     mail: true,
   },
 ];
@@ -45,15 +46,7 @@ const WhoAmI = () => {
       ))}
       <br />
       <h2 className="font-extrabold">## Explore more</h2>
-      <p>
-        Type{" "}
-        <span
-          className="font-bo
-       text-purple-600">
-          help
-        </span>{" "}
-        to learn more about me
-      </p>
+      <NotFound />
       <br />
     </>
   );

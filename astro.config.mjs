@@ -7,4 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   integrations: [react(), tailwind()],
+  server: {
+    host: true,
+  },
 });
