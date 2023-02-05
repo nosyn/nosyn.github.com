@@ -1,19 +1,17 @@
-import type { ReactNode } from "react";
-
 interface PromptProps {
   dirPath?: string;
-  children: ReactNode;
+  prompt: string;
   cursor?: boolean;
 }
 
-const Prompt = ({ dirPath = "~", children, cursor = false }: PromptProps) => {
+const Prompt = ({ dirPath = "~", prompt, cursor = false }: PromptProps) => {
   return (
     <p className="text-lg">
       <span className="text-lime-300">nosyn@InnocentEvils:</span>
       <span className="text-blue-400">{dirPath}</span>
-      <span className="text-blue-200">$ </span>
-      {children}
-      {cursor && <span className="w-1 h-1 text-white"> █</span>}
+      <span className="text-blue-200">$&#32;</span>
+      {prompt}
+      {cursor && <span className="w-1 h-1 text-white">█</span>}
     </p>
   );
 };

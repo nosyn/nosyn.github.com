@@ -8,6 +8,10 @@ module.exports = {
       fontFamily: {
         sans: ["FiraCode", "Inter", ...defaultTheme.fontFamily.sans],
       },
+      spacing: {
+        128: "32rem",
+        160: "40rem",
+      },
     },
   },
   plugins: [],

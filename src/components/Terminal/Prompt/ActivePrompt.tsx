@@ -1,27 +1,41 @@
 import { useEffect, useState } from "react";
+import { commandToJSX } from "./utils";
 import Prompt from "./Prompt";
 
-interface PromptProps {
+export interface ActivePromptProps {
   dirPath?: string;
+  initialState: ICommand;
+}
+
+export interface ICommand {
+  command: string;
+  args: string[];
 }
 
 const TEXTAREA_ID = "command-input";
 
-const ActivePrompt = ({ dirPath = "~" }: PromptProps) => {
-  const [command, setCommand] = useState<string>(" ");
-  const [commands, setCommands] = useState<string[]>([]);
+const ActivePrompt = ({ dirPath = "~", initialState }: ActivePromptProps) => {
+  const [prompt, setPrompt] = useState<string>("");
+  const [commands, setCommands] = useState<ICommand[]>([initialState]);
 
-  const handleCommand = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setCommand(e.target.value);
+  const handlePrompt = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPrompt(e.target.value);
   };
 
   const handleKeydownEvent = (event: KeyboardEvent) => {
     if (event.code === "Enter") {
-      // do your stuff
-      // setCommand("");
-      console.log("hello");
-      setCommands([...commands, command]);
-      setCommand("");
+      const [first, ...args] = prompt.trim().split(" ");
+      const filteredArgs = args.filter((a) => a);
+
+      setCommands([
+        ...commands,
+        {
+          command: first,
+          args: filteredArgs,
+        },
+      ]);
+
+      setPrompt("");
     }
   };
 
@@ -40,23 +54,23 @@ const ActivePrompt = ({ dirPath = "~" }: PromptProps) => {
   });
 
   return (
-    <>
-      {commands.map((c, index) => (
-        <Prompt key={index} dirPath={dirPath}>
-          {c}
-        </Prompt>
+    <div className="max-h-px:128pxa overflow-auto">
+      {commands.map(({ command, args }, index) => (
+        <div key={index}>
+          <Prompt dirPath={dirPath} prompt={command} />
+          {commandToJSX(command, args)}
+        </div>
       ))}
-      <Prompt dirPath={dirPath} cursor>
-        {command}
-      </Prompt>
+      <Prompt dirPath={dirPath} prompt={prompt} cursor />
+
       <textarea
         id={TEXTAREA_ID}
         className="opacity-0 filter-none overflow-hidden h-0 w-0"
         autoFocus
-        value={command}
-        onChange={handleCommand} // ... and update the state variable on any edits!
+        value={prompt}
+        onChange={handlePrompt} // ... and update the state variable on any edits!
       />
-    </>
+    </div>
   );
 };
 
