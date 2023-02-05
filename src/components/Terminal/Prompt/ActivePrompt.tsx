@@ -43,7 +43,7 @@ const ActivePrompt = ({ dirPath = "~", initialState }: ActivePromptProps) => {
     }
   };
 
-  const handMouseClick = (event: MouseEvent) => {
+  const handMouseClick = (_event: MouseEvent) => {
     document.getElementById(TEXTAREA_ID)?.focus();
   };
 
@@ -57,8 +57,14 @@ const ActivePrompt = ({ dirPath = "~", initialState }: ActivePromptProps) => {
     };
   });
 
+  useEffect(() => {
+    document.getElementById("active-prompt-container")?.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return (
-    <div className="max-h-px:128pxa overflow-auto">
+    <div id="active-prompt-container" className="overflow-y-auto lg:max-h-160 max-h-80">
       {commands.map(({ command, args }, index) => (
         <div key={index}>
           <Prompt dirPath={dirPath} prompt={command} />

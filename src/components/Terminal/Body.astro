@@ -4,7 +4,6 @@ import ActivePrompt from "./Prompt/ActivePrompt";
 const initialState = { command: "whoami", args: [] };
 ---
 
-<div
-  class="border-2 text-gray-300 bg-slate-700 border-black p-4 rounded-b-xl max-h-160 overflow-auto leading-relaxed max-w-5xl">
+<div class="border-2 text-gray-300 bg-slate-700 border-black p-4 rounded-b-xl leading-relaxed max-w-5xl">
   <ActivePrompt client:visible initialState={initialState} />
 </div>
