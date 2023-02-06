@@ -17,7 +17,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="h-screen flex justify-center items-center bg-gradient-to-tr from-indigo-700 to-blue-300 px-4">
+  <body
+    class="h-screen flex justify-center items-center bg-gradient-to-tr from-indigo-700 to-blue-300 px-4 dark:from-stone-400 dark:to-violet-800">
     <slot />
   </body>
 </html>

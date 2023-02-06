@@ -67,11 +67,11 @@ const ActivePrompt = ({ dirPath = "~", initialState }: ActivePromptProps) => {
     <div id="active-prompt-container" className="overflow-y-auto lg:max-h-160 max-h-80">
       {commands.map(({ command, args }, index) => (
         <div key={index}>
-          <Prompt dirPath={dirPath} prompt={command} />
+          <Prompt dirPath={dirPath} command={command} />
           {commandToJSX(command, args)}
         </div>
       ))}
-      <Prompt dirPath={dirPath} prompt={prompt} cursor />
+      <Prompt dirPath={dirPath} command={prompt} cursor />
 
       <textarea
         id={TEXTAREA_ID}

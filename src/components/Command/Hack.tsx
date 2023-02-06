@@ -7,6 +7,10 @@ const AVAILABLE_COMMANDS = [
     command: "clear",
     description: "Clear the screen 🧹",
   },
+  {
+    command: "theme",
+    description: "Change theme of the application 🌙. Give it a try with: `theme dark`.",
+  },
 ];
 
 const Hack = () => {

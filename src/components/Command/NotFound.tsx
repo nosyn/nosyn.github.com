@@ -1,6 +1,7 @@
 interface NotFoundProps {
   command?: string;
 }
+
 const NotFound = ({ command }: NotFoundProps) => {
   return (
     <p>
