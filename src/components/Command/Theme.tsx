@@ -17,6 +17,7 @@ const Theme = ({ command, args = [] }: ThemeProps) => {
     );
   }
 
+  // Support theme
   if (AVAILABLE_THEMES.includes(firstArg)) {
     selectTheme(firstArg);
     return (
@@ -26,6 +27,7 @@ const Theme = ({ command, args = [] }: ThemeProps) => {
     );
   }
 
+  // Unsupported argument
   if (firstArg) {
     return (
       <div>
@@ -33,37 +35,29 @@ const Theme = ({ command, args = [] }: ThemeProps) => {
           Unknown command "<span className="text-red-500">{firstArg}</span>" for "
           <span className="text-blue-500">{command}</span>"
         </div>
-        <div>
-          Select theme by following command: <span>theme </span>
-          {` <theme>`}
-          <ol className="list-decimal">
-            {AVAILABLE_THEMES.map((theme) => (
-              <li key={theme} className="text-yellow-500">
-                {theme}
-              </li>
-            ))}
-          </ol>
-        </div>
+        <HelpText />
       </div>
     );
   }
 
-  return (
-    <div>
-      Select theme by following command: <span>theme </span>
-      {` <theme>`}
-      <ol className="list-decimal">
-        {AVAILABLE_THEMES.map((theme) => (
-          <li key={theme} className={theme === "dark" ? "text-stone-400" : "text-indigo-400"}>
-            {theme}
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
+  return <HelpText />;
 };
 
 export default Theme;
+
+const HelpText = () => (
+  <div>
+    Select theme by following command: <span>theme </span>
+    {` <theme>`}
+    <ol className="list-decimal">
+      {AVAILABLE_THEMES.map((theme) => (
+        <li key={theme} className={theme === "dark" ? "text-stone-400" : "text-indigo-400"}>
+          {theme}
+        </li>
+      ))}
+    </ol>
+  </div>
+);
 
 const selectTheme = (theme: string) => {
   if (theme === "dark") {

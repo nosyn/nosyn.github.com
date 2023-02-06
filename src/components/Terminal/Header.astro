@@ -12,34 +12,30 @@ import RectangleIcon from "../../assets/icons/rectangle.svg";
 ---
 
 <div
-  class="py-2 px-4 flex items-center justify-between rounded-t-xl select-none border-t-2 border-x-2 border-black bg-slate-600"
->
+  class="py-2 px-4 flex items-center justify-between rounded-t-xl select-none border-t-2 border-x-2 border-black bg-slate-600">
   <div class="gap-2 hidden sm:flex invisible">
     <div
-      class="w-5 h-5 border-2 border-black rounded-full bg-red-500 hover:bg-red-500 cursor-pointer transition-colors"
-    >
+      class="w-5 h-5 border-2 border-black rounded-full bg-red-500 hover:bg-red-500 cursor-pointer transition-colors">
     </div>
     <div
-      class="w-5 h-5 border-2 border-black rounded-full bg-yellow-500 hover:bg-yellow-500 cursor-pointer transition-colors"
-    >
+      class="w-5 h-5 border-2 border-black rounded-full bg-yellow-500 hover:bg-yellow-500 cursor-pointer transition-colors">
     </div>
     <div
-      class="w-5 h-5 border-2 border-black rounded-full bg-green-500 hover:bg-green-500 cursor-pointer transition-colors"
-    >
+      class="w-5 h-5 border-2 border-black rounded-full bg-green-500 hover:bg-green-500 cursor-pointer transition-colors">
     </div>
   </div>
   <span class="font-bold sm:text-md text-slate-300">[Z] {title}</span>
   <div class="flex gap-2">
-    <button class="w-5 h-5 hover:border-2 rounded-full hover:bg-slate-700 cursor-pointer transition-colors">
-      <img src={MinusIcon} alt="minus-icon" />
+    <button class="w-5 h-5 hover:border-2 rounded-full hover:bg-slate-400 cursor-pointer transition-colors">
+      <div>—</div>
     </button>
-    <button class="w-5 h-5 hover:border-2 rounded-full hover:bg-red-700 cursor-pointer transition-colors">
-      <img src={RectangleIcon} alt="minus-icon" />
+    <button class="w-5 h-5 hover:border-2 rounded-full hover:bg-slate-400 cursor-pointer transition-colors">
+      <img class="w-3 h-3 m-auto" src={RectangleIcon} alt="minus-icon" />
     </button>
     <button
-      class="w-5 h-5 border-2 border-black rounded-full bg-slate-500 hover:bg-slate-700 cursor-pointer transition-colors"
-    >
+      class="w-5 h-5 border-2 border-black rounded-full bg-orange-500 hover:bg-red-500 cursor-pointer transition-colors">
       <img src={XIcon} alt="x-icon" />
+      <span class="sr-only">Icon description</span>
     </button>
   </div>
 </div>
