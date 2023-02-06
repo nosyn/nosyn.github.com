@@ -7,7 +7,5 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   integrations: [react(), tailwind()],
-  server: {
-    host: true,
-  },
+  site: "https://biem97.github.io",
 });
